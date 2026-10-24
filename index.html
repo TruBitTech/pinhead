@@ -9,12 +9,19 @@
 <body>
 <div class="chain-bg"></div>
 
-<header class="top">
-  <div class="title-block">
+<section class="hero">
+  <video id="hero-video" autoplay muted playsinline>
+    <source src="pinhead.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-overlay">
     <h1>PIN HEAD</h1>
     <p class="version">v0.1</p>
     <p class="byline">EMS Synthi AKS for the M-VAVE FM-1</p>
   </div>
+</section>
+
+<header class="top">
   <ul class="features">
     <li>16×16 pin matrix</li>
     <li>3 pin types</li>
@@ -70,5 +77,16 @@
   <p>Pin Head by TruBitTech · <a href="https://github.com/TruBitTech/pinhead">GitHub</a></p>
 </footer>
 <script src="script.js"></script>
+<script>
+  // Ensure video plays once and stops
+  const hero = document.getElementById('hero-video');
+  if (hero) {
+    hero.loop = false;
+    hero.addEventListener('ended', () => {
+      hero.pause();
+      // optional: freeze on last frame (already the default)
+    });
+  }
+</script>
 </body>
 </html>
