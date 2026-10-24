@@ -201,6 +201,7 @@ body {
   border-radius: 8px;
   position: relative;
 }
+/* Offset headers by half a cell so labels sit on the intersections */
 .matrix-header {
   display: flex;
   align-items: center;
@@ -208,6 +209,7 @@ body {
   font-size: 0.65rem;
   color: #888;
   user-select: none;
+  transform: translateX(-14px);
 }
 .matrix-row-header {
   display: flex;
@@ -217,6 +219,7 @@ body {
   font-size: 0.65rem;
   color: #888;
   user-select: none;
+  transform: translateY(-14px);
 }
 .matrix-cell {
   position: relative;
