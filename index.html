@@ -49,17 +49,18 @@
   <section class="history">
     <h2>The Synthi</h2>
     <div class="synthi-grid">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/EMS_Synthi_AKS_%28opened%29.jpg" alt="EMS Synthi AKS open">
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/EMS_Synthi_AKS.jpg" alt="EMS Synthi AKS">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/EMS_Synthi_AKS_through_a_Phaser_Spiral-48.jpg" alt="Synthi pin matrix">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/EMS_Synthi_AKS_%28opened%29.jpg" alt="EMS Synthi AKS open">
     </div>
     <p>The EMS Synthi AKS (1972) was a portable modular synthesizer in a briefcase. Its 16×16 pin matrix let you patch anything to anything with three colored pins: white (normal), red (precision), green (attenuated). Used by Pink Floyd on <em>Dark Side of the Moon</em> (“On the Run”), Brian Eno, and countless others.</p>
   </section>
 
   <section class="matrix-section">
     <h2>Matrix</h2>
-    <div id="matrix"></div>
-    <p class="hint">Click a cell to cycle: none → white → red → green</p>
+    <div id="matrix-wrap">
+      <div id="matrix"></div>
+    </div>
+    <p class="hint">Click an intersection to cycle pin: none → white → red → green</p>
   </section>
 
   <section class="install">
@@ -78,14 +79,10 @@
 </footer>
 <script src="script.js"></script>
 <script>
-  // Ensure video plays once and stops
   const hero = document.getElementById('hero-video');
   if (hero) {
     hero.loop = false;
-    hero.addEventListener('ended', () => {
-      hero.pause();
-      // optional: freeze on last frame (already the default)
-    });
+    hero.addEventListener('ended', () => hero.pause());
   }
 </script>
 </body>
