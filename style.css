@@ -80,6 +80,71 @@ body {
   border-radius: 6px;
   border: 1px solid #333;
 }
+#fm1-panel {
+  background: #1a1a1a;
+  border: 3px solid #333;
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 640px;
+  margin: 1.5rem auto;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+.screen {
+  background: #0d0d0d;
+  color: #0f0;
+  font-family: monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  border: 1px solid #222;
+}
+.knobs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+}
+.knob {
+  width: 40px;
+  height: 40px;
+  background: #333;
+  border-radius: 50%;
+  border: 2px solid #555;
+  position: relative;
+  cursor: ns-resize;
+}
+.knob::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: #888;
+}
+#keys {
+  display: flex;
+  height: 120px;
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+.key {
+  flex: 1;
+  background: #2a2a2a;
+  border-right: 1px solid #111;
+  cursor: pointer;
+  transition: background 0.05s;
+}
+.key:last-child { border-right: none; }
+.key.white { background: #e0e0e0; }
+.key.active, .key:active {
+  background: #0f0 !important;
+  filter: brightness(1.3);
+}
 #matrix {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
@@ -95,10 +160,6 @@ body {
   background: #222;
   border-radius: 2px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
 }
 .cell.white { background: #ddd; }
 .cell.red { background: #c33; }
