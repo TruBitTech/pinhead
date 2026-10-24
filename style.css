@@ -2,103 +2,79 @@
 body {
   background: #0a0a0a;
   color: #e0e0e0;
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-}
-.hero {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
   position: relative;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+}
+.chain-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 40px, rgba(60,60,60,0.15) 40px 44px),
+    repeating-linear-gradient(0deg, transparent 0 40px, rgba(60,60,60,0.08) 40px 44px);
+  z-index: 0;
+}
+.top, main, footer { position: relative; z-index: 1; }
+.top {
   text-align: center;
-  padding: 2rem;
-  overflow: hidden;
-  background: linear-gradient(180deg, #111 0%, #000 100%);
+  padding: 3rem 1rem 2rem;
+  border-bottom: 1px solid #222;
 }
-.chain-left, .chain-right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 60px;
-  background: repeating-linear-gradient(
-    180deg,
-    transparent,
-    transparent 20px,
-    #333 20px,
-    #333 24px,
-    #555 24px,
-    #555 28px
-  );
-  opacity: 0.6;
-}
-.chain-left { left: 0; }
-.chain-right { right: 0; }
-.hero h1 {
-  font-size: clamp(3rem, 10vw, 6rem);
-  letter-spacing: 0.2em;
+.top h1 {
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  letter-spacing: 0.15em;
+  font-weight: 700;
   color: #fff;
-  text-shadow: 0 0 20px rgba(255,255,255,0.3);
 }
-.tagline { font-size: 1.4rem; margin: 0.5rem 0; color: #aaa; }
-.subtitle { color: #888; }
-.hero-image img {
-  max-width: 90%;
-  max-height: 50vh;
-  margin-top: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+.version {
+  display: inline-block;
+  background: #222;
+  color: #aaa;
+  padding: 0.2rem 0.8rem;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
 }
-.section {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 2rem;
-  border-left: 4px solid #333;
-  border-right: 4px solid #333;
-  position: relative;
+.byline { color: #888; margin-bottom: 1.5rem; }
+.features {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
-.section::before {
-  content: "";
-  position: absolute;
-  left: -12px;
-  top: 20px;
-  width: 20px;
-  height: 20px;
-  background: #444;
-  border-radius: 50%;
-  box-shadow: 0 40px 0 #444, 0 80px 0 #444;
-}
-.synthi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
-.synthi-grid img {
-  width: 100%;
-  border-radius: 6px;
+.features li {
+  background: #1a1a1a;
   border: 1px solid #333;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+.panel-section {
+  padding: 3rem 1rem;
+  text-align: center;
 }
 #fm1-panel {
-  background: #1a1a1a;
-  border: 3px solid #333;
-  border-radius: 16px;
-  padding: 1.5rem;
-  max-width: 640px;
-  margin: 1.5rem auto;
-  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  background: linear-gradient(180deg, #1c1c1c, #111);
+  border: 3px solid #2a2a2a;
+  border-radius: 18px;
+  padding: 1.75rem;
+  max-width: 680px;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 .screen {
-  background: #0d0d0d;
+  background: #050505;
   color: #0f0;
-  font-family: monospace;
-  font-size: 1.2rem;
-  letter-spacing: 0.3em;
+  font-family: ui-monospace, monospace;
+  font-size: 1.4rem;
+  letter-spacing: 0.4em;
   text-align: center;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 1rem;
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
   border: 1px solid #222;
 }
 .knobs {
@@ -107,69 +83,93 @@ body {
   margin-bottom: 1.5rem;
 }
 .knob {
-  width: 40px;
-  height: 40px;
-  background: #333;
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(circle at 40% 35%, #555, #222);
   border-radius: 50%;
-  border: 2px solid #555;
+  border: 2px solid #444;
   position: relative;
   cursor: ns-resize;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 .knob::after {
   content: attr(data-label);
   position: absolute;
-  bottom: -18px;
+  bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.7rem;
-  color: #888;
+  color: #777;
 }
 #keys {
   display: flex;
-  height: 120px;
-  background: #111;
-  border-radius: 8px;
+  height: 130px;
+  background: #0d0d0d;
+  border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #333;
+  border: 1px solid #2a2a2a;
 }
 .key {
   flex: 1;
-  background: #2a2a2a;
+  background: #222;
   border-right: 1px solid #111;
   cursor: pointer;
-  transition: background 0.05s;
+  transition: background 0.04s;
 }
 .key:last-child { border-right: none; }
-.key.white { background: #e0e0e0; }
+.key.white { background: #d0d0d0; }
 .key.active, .key:active {
   background: #0f0 !important;
-  filter: brightness(1.3);
+  filter: brightness(1.4);
+}
+.history, .matrix-section, .install {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+.history h2, .matrix-section h2, .install h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.synthi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+.synthi-grid img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #333;
 }
 #matrix {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
-  gap: 2px;
+  gap: 3px;
   background: #111;
-  padding: 8px;
-  max-width: 600px;
+  padding: 10px;
+  max-width: 560px;
   margin: 1rem auto;
-  border: 2px solid #333;
+  border: 2px solid #2a2a2a;
+  border-radius: 8px;
 }
 .cell {
   aspect-ratio: 1;
-  background: #222;
+  background: #1e1e1e;
   border-radius: 2px;
   cursor: pointer;
 }
 .cell.white { background: #ddd; }
 .cell.red { background: #c33; }
 .cell.green { background: #3c3; }
+.install ul { margin: 0.75rem 0 0 1.2rem; }
 footer {
   text-align: center;
-  padding: 3rem;
+  padding: 3rem 1rem;
   color: #666;
   border-top: 1px solid #222;
+  font-size: 0.9rem;
 }
 a { color: #8cf; }
-h2 { margin-bottom: 1rem; color: #fff; }
-.hint { font-size: 0.9rem; color: #888; text-align: center; }
+.hint { font-size: 0.9rem; color: #888; margin-top: 0.75rem; }

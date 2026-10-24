@@ -1,4 +1,4 @@
-// Matrix demo
+// Matrix
 const matrix = document.getElementById('matrix');
 const states = ['none', 'white', 'red', 'green'];
 const grid = Array(16).fill(0).map(() => Array(16).fill(0));
@@ -58,10 +58,9 @@ document.addEventListener('mouseup', () => {
   setTimeout(() => {
     document.querySelectorAll('.key').forEach(k => k.classList.remove('active'));
     lastKey = -1;
-  }, 80);
+  }, 60);
 });
 
-// Touch support
 keysContainer.addEventListener('touchstart', (e) => {
   isDragging = true;
   const touch = e.touches[0];
@@ -83,5 +82,5 @@ document.addEventListener('touchend', () => {
   setTimeout(() => {
     document.querySelectorAll('.key').forEach(k => k.classList.remove('active'));
     lastKey = -1;
-  }, 80);
+  }, 60);
 });
