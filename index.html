@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pin Head — Synthi AKS for the M-VAVE FM-1</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="chain-left"></div>
+  <div class="chain-right"></div>
+  <div class="hero-content">
+    <h1>PIN HEAD</h1>
+    <p class="tagline">EMS Synthi AKS in your pocket</p>
+    <p class="subtitle">A pin-matrix firmware for the M-VAVE FM-1</p>
+  </div>
+  <div class="hero-image">
+    <img src="hero.jpg" alt="Pinhead revealing a black FM-1 with hooks and chains">
+  </div>
+</header>
+
+<section id="history" class="section">
+  <h2>The Synthi</h2>
+  <div class="synthi-grid">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/EMS_Synthi_AKS_%28opened%29.jpg" alt="EMS Synthi AKS open briefcase">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/EMS_Synthi_AKS.jpg" alt="EMS Synthi AKS">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/EMS_Synthi_AKS_through_a_Phaser_Spiral-48.jpg" alt="Synthi AKS with pin matrix">
+  </div>
+  <p>The EMS Synthi AKS (1972) was a portable modular synthesizer in a briefcase. Its 16×16 pin matrix let you patch anything to anything with three colored pins: white (normal), red (precision), green (attenuated). Used by Pink Floyd on <em>Dark Side of the Moon</em> (“On the Run”), Brian Eno, and countless others.</p>
+  <p>Pin Head brings that exact patching philosophy to the M-VAVE FM-1.</p>
+</section>
+
+<section id="demo" class="section">
+  <h2>Matrix Demo</h2>
+  <div id="matrix"></div>
+  <p class="hint">Click a cell to cycle pin (none → white → red → green). Knobs 1/2 would scroll on the real device.</p>
+</section>
+
+<section id="install" class="section">
+  <h2>Install & Recovery</h2>
+  <h3>Install</h3>
+  <ol>
+    <li>Download the latest .bin from the <a href="https://github.com/TruBitTech/pinhead/releases">releases</a>.</li>
+    <li>Use M-Flasher or the browser flasher (coming soon).</li>
+    <li>Hold the correct buttons while powering on if required by the base firmware.</li>
+  </ol>
+  <h3>Unbrick / Revert to Stock</h3>
+  <ul>
+    <li><a href="https://github.com/aroum/fm1-custom-fw">fm1-custom-fw recovery tools</a></li>
+    <li><a href="https://github.com/joakimeriksson/fm1-emu">FM-1 Emulator</a> for testing first</li>
+    <li>Official M-VAVE stock firmware via their site or M-Flasher</li>
+  </ul>
+  <p><strong>Always test in the emulator before flashing hardware.</strong></p>
+</section>
+
+<footer>
+  <p>Pin Head by TruBitTech · <a href="https://github.com/TruBitTech/pinhead">GitHub</a> · trubittech.com</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

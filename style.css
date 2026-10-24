@@ -1,0 +1,114 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0a0a;
+  color: #e0e0e0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, #111 0%, #000 100%);
+}
+.chain-left, .chain-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent,
+    transparent 20px,
+    #333 20px,
+    #333 24px,
+    #555 24px,
+    #555 28px
+  );
+  opacity: 0.6;
+}
+.chain-left { left: 0; }
+.chain-right { right: 0; }
+.hero h1 {
+  font-size: clamp(3rem, 10vw, 6rem);
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+.tagline { font-size: 1.4rem; margin: 0.5rem 0; color: #aaa; }
+.subtitle { color: #888; }
+.hero-image img {
+  max-width: 90%;
+  max-height: 50vh;
+  margin-top: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+.section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  border-left: 4px solid #333;
+  border-right: 4px solid #333;
+  position: relative;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background: #444;
+  border-radius: 50%;
+  box-shadow: 0 40px 0 #444, 0 80px 0 #444;
+}
+.synthi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.synthi-grid img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #333;
+}
+#matrix {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 2px;
+  background: #111;
+  padding: 8px;
+  max-width: 600px;
+  margin: 1rem auto;
+  border: 2px solid #333;
+}
+.cell {
+  aspect-ratio: 1;
+  background: #222;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+.cell.white { background: #ddd; }
+.cell.red { background: #c33; }
+.cell.green { background: #3c3; }
+footer {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  border-top: 1px solid #222;
+}
+a { color: #8cf; }
+h2 { margin-bottom: 1rem; color: #fff; }
+.hint { font-size: 0.9rem; color: #888; text-align: center; }
